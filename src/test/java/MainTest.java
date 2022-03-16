@@ -37,14 +37,14 @@ public class MainTest extends Hooks {
     }
 
     @Test
-    public void VerifyMovieGenreFilter() {
+    public void VerifyMovieGenreFilter(){
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
         FilterPage filterPage = mainPage.clickMovieMenuItem(4);
         filterPage.clickFiltersItem()
                 .clickGenresItem()
                 .clickSearchButton();
-
+        Assert.assertTrue(filterPage.clicMoviesItem(5).validarGenres(data.getGenreMovie()), "Validate genres success");
     }
 
     @Test
@@ -57,15 +57,17 @@ public class MainTest extends Hooks {
         //System.out.println(movieName);
         ActorPage actorPage = moviePage.clickSelectActor(0);
         Assert.assertTrue(actorPage.validarActingTimeLine("The Batman"), "Validación de pelicula en acting time line");
-
     }
 
     @Test
     public void SortDatesAscendingOrder() throws InterruptedException {
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
-        FilterPage filterPage = mainPage.clickMovieMenuItem(5);
-        filterPage.clickSearchButton();
+        FilterPage filterPage = mainPage.clickMovieMenuItem(4);
+        filterPage.selectSortResultsBy(5)
+                .clickSearchButton();
+
+
         Thread.sleep(10000);
     }
 }
