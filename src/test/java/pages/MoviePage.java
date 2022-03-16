@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class MoviePage extends BasePage{
 
     private By actorsItem = By.cssSelector("li.card");
-    private By movieTittle = By.xpath("//div[@class=\"title ott_true\"]//h2/a");
+    private By movieTittle = By.xpath("//div[@class=\"title ott_false\"]/h2");
 
     public MoviePage(WebDriver driver) {
         super(driver);
@@ -19,9 +19,8 @@ public class MoviePage extends BasePage{
 
     public String getMovieName(){
         String val = mapWebElement(movieTittle).getText();
-        System.out.println(val);
-        return null;
+        val = val.substring(0, val.length()-7);
+        return val;
     }
-
 
 }

@@ -1,0 +1,11 @@
+Pages\MainPage.class
+MainTest.class
+Pages\FilterPage.class
+Pages\ActorPage.class
+Utils\Hooks.class
+Pages\LoginPage.class
+Pages\BasePage.class
+Pages\UserLoggedPage.class
+Pages\MovieItemsPage.class
+Pages\MoviePage.class
+Utils\Data.class
