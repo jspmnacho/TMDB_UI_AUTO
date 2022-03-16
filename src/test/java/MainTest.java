@@ -1,6 +1,6 @@
-import Pages.*;
-import Utils.Data;
-import Utils.Hooks;
+import pages.*;
+import utils.Data;
+import utils.Hooks;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,7 +13,7 @@ public class MainTest extends Hooks {
         LoginPage loginPage = mainPage.clickloginMenuButton();
         loginPage.sendKeys(data.getUsername(), data.getPassword());
         UserLoggedPage userLoggedPage = loginPage.clickButton();
-        Assert.assertEquals(userLoggedPage.getText(), "juanpuerto");
+        Assert.assertEquals(userLoggedPage.getText(), data.getUsername());
     }
 
     @Test
@@ -37,7 +37,7 @@ public class MainTest extends Hooks {
     }
 
     @Test
-    public void VerifyMovieGenreFilter(){
+    public void VerifyMovieGenreFilter() throws InterruptedException {
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
         FilterPage filterPage = mainPage.clickMovieMenuItem(4);
@@ -49,14 +49,12 @@ public class MainTest extends Hooks {
 
     @Test
     public void ValidateActingTimeline(){
-        Data data = new Data();
         MainPage mainPage = new MainPage(driver);
         FilterPage filterPage = mainPage.clickMovieMenuItem(1);
         MoviePage moviePage = filterPage.clickMovieItem(3);
-        //String movieName = moviePage.getMovieName();
-        //System.out.println(movieName);
+        String movieName = moviePage.getMovieName();
         ActorPage actorPage = moviePage.clickSelectActor(0);
-        Assert.assertTrue(actorPage.validarActingTimeLine("The Batman"), "Validación de pelicula en acting time line");
+        Assert.assertTrue(actorPage.validarActingTimeLine(movieName), "Validación de pelicula en acting time line");
     }
 
     @Test
@@ -66,8 +64,5 @@ public class MainTest extends Hooks {
         FilterPage filterPage = mainPage.clickMovieMenuItem(4);
         filterPage.selectSortResultsBy(5)
                 .clickSearchButton();
-
-
-        Thread.sleep(10000);
     }
 }
