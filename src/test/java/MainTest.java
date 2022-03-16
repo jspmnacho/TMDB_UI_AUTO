@@ -1,3 +1,4 @@
+import org.testng.annotations.DataProvider;
 import pages.*;
 import utils.Data;
 import utils.Hooks;
@@ -65,5 +66,12 @@ public class MainTest extends Hooks {
         filterPage.selectSortResultsBy(5)
                 .clickSearchButton()
                 .validateDateMovie();
+    }
+
+    @DataProvider(name = "data-provider", parallel = true)
+    public Object[][] dataProviderMethod(){
+        Data data = new Data();
+        return new Object[][] {{data.getUsername(), data.getPassword()}
+                                ,{data.getUsername(),data.getPassword()}};
     }
 }
