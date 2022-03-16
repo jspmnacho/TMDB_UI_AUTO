@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 public class BasePage {
 
@@ -18,10 +18,11 @@ public class BasePage {
         this.driver = driver;
     }
 
+
     public WebElement mapWebElement(By locator){
+        WebDriverWait wait = new WebDriverWait(driver, 5);
         WebElement val = driver.findElement(locator);
         Actions action = new Actions(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 5);
         action.moveToElement(val).build().perform();
         wait.until(ExpectedConditions.elementToBeClickable(val));
         return val;
@@ -32,13 +33,13 @@ public class BasePage {
     }
 /*
     public List<WebElement> mapWebElements(By locator){
-        List val = driver.findElements(locator);
-        for(int i= 0; i<val.size(); i++){
-            WebDriverWait wait = new WebDriverWait(driver, 5);
-            wait.until(ExpectedConditions.elementToBeClickable(val.get(i)));
-            i++;
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        List elements = driver.findElements(locator);
+        for(int i= 0; i<elements.size(); i++){
+            System.out.println(driver.findElements(locator).get(i));
+            wait.until(ExpectedConditions.elementToBeClickable(driver.findElements(locator).get(i)));
         }
-        return driver.findElements((By) val);
+        return elements;
     }
 */
 }

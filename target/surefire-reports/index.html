@@ -177,7 +177,7 @@
                   </a> <!-- SortDatesAscendingOrder -->
                   <span class="method-name">SortDatesAscendingOrder</span>
                   <div class="stack-trace">java.lang.AssertionError: Movie is not between the year expected [true] but found [false]
-	at pages.FilterPage.validateDateMovie(FilterPage.java:79)
+	at pages.FilterPage.validateDateMovie(FilterPage.java:75)
 	at MainTest.SortDatesAscendingOrder(MainTest.java:68)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 35 stack frames
@@ -195,10 +195,10 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: &apos;4.1.2&apos;, revision: &apos;9a5a329c5a&apos;
 System info: host: &apos;EN911466&apos;, ip: &apos;192.168.5.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [3c34099edaf0d72ef4445096d22c806b, clickElement {id=7e0d6eea-775b-47b3-9750-5105347497ca}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.51, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\jpuerto\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:53895}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53895/devtoo..., se:cdpVersion: 99.0.4844.51, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (3c34099edaf0d72ef4445096d22c806b)] -&gt; css selector: div.style_1]
-Session ID: 3c34099edaf0d72ef4445096d22c806b
+Command: [962ec595484634216cd83d337d2da0e5, clickElement {id=c8f1eb35-7fe2-4285-868d-f29fd8c04174}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.51, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\jpuerto\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:56772}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56772/devtoo..., se:cdpVersion: 99.0.4844.51, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (962ec595484634216cd83d337d2da0e5)] -&gt; css selector: div.style_1]
+Session ID: 962ec595484634216cd83d337d2da0e5
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
@@ -208,7 +208,7 @@ Session ID: 3c34099edaf0d72ef4445096d22c806b
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:558)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
-	at pages.FilterPage.clicMoviesItem(FilterPage.java:60)
+	at pages.FilterPage.clicMoviesItem(FilterPage.java:56)
 	at MainTest.VerifyMovieGenreFilter(MainTest.java:48)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 37 stack frames
@@ -285,10 +285,6 @@ Session ID: 3c34099edaf0d72ef4445096d22c806b
               <span class="test-group-name">test1</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">FailedLogin</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
                 <span class="method-in-group-name">SuccessLogin</span>
                 <br/>
               </div> <!-- method-in-group -->
@@ -296,6 +292,10 @@ Session ID: 3c34099edaf0d72ef4445096d22c806b
             <div class="test-group">
               <span class="test-group-name">test2</span>
               <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">FailedLogin</span>
+                <br/>
+              </div> <!-- method-in-group -->
               <div class="method-in-group">
                 <span class="method-in-group-name">SuccessLogin</span>
                 <br/>
@@ -345,27 +345,27 @@ data.addRows(6);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'ValidateActingTimeline')
 data.setCell(0, 2, 'MainTest')
-data.setCell(0, 3, 2862);
+data.setCell(0, 3, 3276);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'VerifyMovieGenreFilter')
 data.setCell(1, 2, 'MainTest')
-data.setCell(1, 3, 2461);
+data.setCell(1, 3, 2548);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'SortDatesAscendingOrder')
+data.setCell(2, 1, 'SuccessLogin')
 data.setCell(2, 2, 'MainTest')
-data.setCell(2, 3, 2272);
+data.setCell(2, 3, 2078);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'SuccessLogin')
+data.setCell(3, 1, 'FailedLogin')
 data.setCell(3, 2, 'MainTest')
-data.setCell(3, 3, 2026);
+data.setCell(3, 3, 1738);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'FailedLogin')
+data.setCell(4, 1, 'SortDatesAscendingOrder')
 data.setCell(4, 2, 'MainTest')
-data.setCell(4, 3, 1803);
+data.setCell(4, 3, 1553);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'SuccessfulSearch')
 data.setCell(5, 2, 'MainTest')
-data.setCell(5, 3, 1404);
+data.setCell(5, 3, 1387);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
@@ -405,75 +405,75 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">FailedLogin</span>
-                <span class="method-start">6596 ms</span>
+                <span class="method-start">6984 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">8414 ms</span>
+                <span class="method-start">8735 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">8806 ms</span>
+                <span class="method-start">9060 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">SortDatesAscendingOrder</span>
-                <span class="method-start">13722 ms</span>
+                <span class="method-start">14556 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">15997 ms</span>
+                <span class="method-start">16111 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">16414 ms</span>
+                <span class="method-start">16473 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SuccessLogin</span>
-                <span class="method-start">21093 ms</span>
+                <span class="method-start">21529 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">23122 ms</span>
+                <span class="method-start">23608 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">23464 ms</span>
+                <span class="method-start">23904 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SuccessfulSearch</span>
-                <span class="method-start">28618 ms</span>
+                <span class="method-start">29795 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">30025 ms</span>
+                <span class="method-start">31183 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">30453 ms</span>
+                <span class="method-start">31496 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">ValidateActingTimeline</span>
-                <span class="method-start">35030 ms</span>
+                <span class="method-start">38020 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">37894 ms</span>
+                <span class="method-start">41298 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">38300 ms</span>
+                <span class="method-start">41611 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">VerifyMovieGenreFilter</span>
-                <span class="method-start">42633 ms</span>
+                <span class="method-start">47461 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">45103 ms</span>
+                <span class="method-start">50013 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

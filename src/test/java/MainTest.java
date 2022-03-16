@@ -17,7 +17,7 @@ public class MainTest extends Hooks {
         Assert.assertEquals(userLoggedPage.getText(), data.getUsername());
     }
 
-    @Test (groups = { "test1"})
+    @Test (groups = { "test2"})
     public void FailedLogin(){
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
@@ -66,12 +66,5 @@ public class MainTest extends Hooks {
         filterPage.selectSortResultsBy(5)
                 .clickSearchButton()
                 .validateDateMovie();
-    }
-
-    @DataProvider(name = "data-provider", parallel = true)
-    public Object[][] dataProviderMethod(){
-        Data data = new Data();
-        return new Object[][] {{data.getUsername(), data.getPassword()}
-                                ,{data.getUsername(),data.getPassword()}};
     }
 }
