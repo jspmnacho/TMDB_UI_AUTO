@@ -61,21 +61,29 @@ public class FilterPage extends BasePage{
         return new MovieItemsPage(driver);
     }
 
-    public void validateDateMovie() throws ParseException {
-        SimpleDateFormat formato = new SimpleDateFormat("MM/dd/yyyy");
-        List valor = mapWebElements(dateMovieItem);
-        for(int i= 0; i<valor.size(); i++){
-            for(int j= 0; j<4; j++){
-                String valFijo = mapWebElements(dateMovieItem).get(j).getText();
-                String val = mapWebElements(dateMovieItem).get(j).getText();
-                Date dateFormateada = formato.parse(val);
-                Date dateFijo = formato.parse(valFijo);
-                if(dateFormateada.getYear() <= dateFijo.getYear()){
-                    Assert.assertTrue(true, "Año del item " + j +" es menor");
-                }else{
-                    Assert.assertTrue(false, "Año del item " + j +" es mayor");
-                }
+    public void validateDateMovie() {
+        String valor ="";
+        int value = 0;
+        int dateValidate = 0;
+        List val = mapWebElements(dateMovieItem);
+        for(int i=0; i<val.size();i++){
+            valor = mapWebElements(dateMovieItem).get(i).getText();
+            valor = valor.substring(8, valor.length()-0);
+            value = Integer.valueOf(valor);
+            if(i == 0){
+                dateValidate += value;
             }
+            if(dateValidate <= value){
+                Assert.assertTrue(true,"Movie is between the year");
+            }else{
+                Assert.assertTrue(false,"Movie is not between the year");
+            }
+            System.out.println(valor);
+            if(i >= 4){
+                i = val.size();
+            }
+
         }
+
     }
 }
