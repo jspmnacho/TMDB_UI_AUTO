@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class MainTest extends Hooks {
 
-    @Test
+    @Test (groups = { "test1", "test2"})
     public void SuccessLogin() {
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
@@ -16,7 +16,7 @@ public class MainTest extends Hooks {
         Assert.assertEquals(userLoggedPage.getText(), data.getUsername());
     }
 
-    @Test
+    @Test (groups = { "test1"})
     public void FailedLogin(){
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
@@ -27,7 +27,7 @@ public class MainTest extends Hooks {
         Assert.assertEquals(loginPage.getText(1), "You have 4 remaining login attempts.");
     }
 
-    @Test
+    @Test (groups = { "test2"})
     public void SuccessfulSearch() {
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
@@ -36,8 +36,8 @@ public class MainTest extends Hooks {
                 .checkMovieTittle(), "Fight Club");
     }
 
-    @Test
-    public void VerifyMovieGenreFilter() throws InterruptedException {
+    @Test (groups = { "test3"})
+    public void VerifyMovieGenreFilter() {
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
         FilterPage filterPage = mainPage.clickMovieMenuItem(4);
@@ -47,7 +47,7 @@ public class MainTest extends Hooks {
         Assert.assertTrue(filterPage.clicMoviesItem(5).validarGenres(data.getGenreMovie()), "Validate genres success");
     }
 
-    @Test
+    @Test (groups = { "test3"})
     public void ValidateActingTimeline(){
         MainPage mainPage = new MainPage(driver);
         FilterPage filterPage = mainPage.clickMovieMenuItem(1);
@@ -57,12 +57,13 @@ public class MainTest extends Hooks {
         Assert.assertTrue(actorPage.validarActingTimeLine(movieName), "Validación de pelicula en acting time line");
     }
 
-    @Test
-    public void SortDatesAscendingOrder() throws InterruptedException {
+    @Test (groups = { "test4"})
+    public void SortDatesAscendingOrder() {
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
         FilterPage filterPage = mainPage.clickMovieMenuItem(4);
         filterPage.selectSortResultsBy(5)
-                .clickSearchButton();
+                .clickSearchButton()
+                .validateDateMovie();
     }
 }
