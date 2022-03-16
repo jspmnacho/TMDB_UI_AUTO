@@ -1,10 +1,14 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class FilterPage extends BasePage{
@@ -15,7 +19,7 @@ public class FilterPage extends BasePage{
     private By movieItem = By.cssSelector("div.style_1");
     private By sortResultsButton = By.xpath("//div[@class=\"filter\"]/span[@role=\"listbox\"]");
     private By sortResults = By.xpath("//ul[@id=\"sort_by_listbox\"]/li");
-    private By date
+    private By dateMovieItem = By.xpath("//div[@class=\"card style_1\"]//div[@class=\"content\"]/p");
 
 
 
@@ -55,5 +59,23 @@ public class FilterPage extends BasePage{
     public MovieItemsPage clicMoviesItem(int item){
         mapWebElements(movieItem).get(item).click();
         return new MovieItemsPage(driver);
+    }
+
+    public void validateDateMovie() throws ParseException {
+        SimpleDateFormat formato = new SimpleDateFormat("MM/dd/yyyy");
+        List valor = mapWebElements(dateMovieItem);
+        for(int i= 0; i<valor.size(); i++){
+            for(int j= 0; j<4; j++){
+                String valFijo = mapWebElements(dateMovieItem).get(j).getText();
+                String val = mapWebElements(dateMovieItem).get(j).getText();
+                Date dateFormateada = formato.parse(val);
+                Date dateFijo = formato.parse(valFijo);
+                if(dateFormateada.getYear() <= dateFijo.getYear()){
+                    Assert.assertTrue(true, "Año del item " + j +" es menor");
+                }else{
+                    Assert.assertTrue(false, "Año del item " + j +" es mayor");
+                }
+            }
+        }
     }
 }

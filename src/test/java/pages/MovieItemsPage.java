@@ -1,9 +1,10 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MovieItemsPage extends BasePage {
 
@@ -27,7 +28,7 @@ public class MovieItemsPage extends BasePage {
         for(int i= 0; i<valor.size(); i++){
             for(int j= 0; j<valor.size(); j++){
                 String val = mapWebElements(genresMovie).get(j).getText();
-                System.out.println(val);
+                driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                 if(mapWebElements(genresMovie).get(j).getText().equals(genre)){
                     result = true;
                     i = valor.size();
