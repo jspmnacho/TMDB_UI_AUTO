@@ -11,6 +11,7 @@ public class Data {
     private String password;
     private String passWrong;
     private String movieName;
+    private String genreMovie;
 
 
     public Data() {
@@ -26,6 +27,7 @@ public class Data {
         setPassword(properties.getProperty("password"));
         setPassWrong(properties.getProperty("passWrong"));
         setMovieName(properties.getProperty("movieName"));
+        setGenreMovie(properties.getProperty("genreMovie"));
 
     }
 
@@ -59,5 +61,13 @@ public class Data {
 
     public void setMovieName(String movieName) {
         this.movieName = movieName;
+    }
+
+    public String getGenreMovie() {
+        return genreMovie;
+    }
+
+    public void setGenreMovie(String genreMovie) {
+        this.genreMovie = genreMovie;
     }
 }
