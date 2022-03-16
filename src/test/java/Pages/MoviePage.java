@@ -18,7 +18,9 @@ public class MoviePage extends BasePage{
     }
 
     public String getMovieName(){
-        return mapWebElement(movieTittle).getText();
+        String val = mapWebElement(movieTittle).getText();
+        System.out.println(val);
+        return null;
     }
 
 

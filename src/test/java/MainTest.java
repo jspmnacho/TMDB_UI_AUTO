@@ -1,8 +1,10 @@
 import Pages.*;
+import Utils.Data;
+import Utils.Hooks;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class MainTest extends Hooks{
+public class MainTest extends Hooks {
 
     @Test
     public void SuccessLogin() {
@@ -26,7 +28,7 @@ public class MainTest extends Hooks{
     }
 
     @Test
-    public void SuccessfulSearch() throws InterruptedException {
+    public void SuccessfulSearch() {
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
         Assert.assertEquals(mainPage.searchMovie(data.getMovieName())
@@ -35,26 +37,35 @@ public class MainTest extends Hooks{
     }
 
     @Test
-    public void VerifyMovieGenreFilter() throws InterruptedException {
+    public void VerifyMovieGenreFilter() {
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
         FilterPage filterPage = mainPage.clickMovieMenuItem(4);
         filterPage.clickFiltersItem()
                 .clickGenresItem()
                 .clickSearchButton();
-        Thread.sleep(10000);
+
     }
 
     @Test
-    public void ValidateActingTimeline() throws InterruptedException {
+    public void ValidateActingTimeline(){
         Data data = new Data();
         MainPage mainPage = new MainPage(driver);
         FilterPage filterPage = mainPage.clickMovieMenuItem(1);
         MoviePage moviePage = filterPage.clickMovieItem(3);
         //String movieName = moviePage.getMovieName();
         //System.out.println(movieName);
-        moviePage.clickSelectActor(0);
+        ActorPage actorPage = moviePage.clickSelectActor(0);
+        Assert.assertTrue(actorPage.validarActingTimeLine("The Batman"), "Validación de pelicula en acting time line");
 
+    }
+
+    @Test
+    public void SortDatesAscendingOrder() throws InterruptedException {
+        Data data = new Data();
+        MainPage mainPage = new MainPage(driver);
+        FilterPage filterPage = mainPage.clickMovieMenuItem(5);
+        filterPage.clickSearchButton();
         Thread.sleep(10000);
     }
 }
