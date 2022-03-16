@@ -7,6 +7,8 @@ public class Data {
 
     private String username;
     private String password;
+    private String passWrong;
+    private String movieName;
 
 
     public Data() {
@@ -20,6 +22,8 @@ public class Data {
 
         setUsername(properties.getProperty("user"));
         setPassword(properties.getProperty("password"));
+        setPassWrong(properties.getProperty("passWrong"));
+        setMovieName(properties.getProperty("movieName"));
 
     }
 
@@ -37,5 +41,21 @@ public class Data {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPassWrong() {
+        return passWrong;
+    }
+
+    public void setPassWrong(String passWrong) {
+        this.passWrong = passWrong;
+    }
+
+    public String getMovieName() {
+        return movieName;
+    }
+
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
     }
 }
