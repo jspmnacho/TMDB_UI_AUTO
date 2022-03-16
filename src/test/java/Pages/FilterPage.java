@@ -9,6 +9,8 @@ public class FilterPage extends BasePage{
     private By genresActionItem = By.cssSelector("li[data-value=\"28\"]");
     private By searchButton = By.cssSelector("p.load_more");
     private By movieItem = By.cssSelector("div.style_1");
+    private By sortResultsButton = By.xpath("//div[@class=\"filter\"]/span[@role=\"listbox\"]");
+    private By sortResults = By.xpath("//ul[@id=\"sort_by_listbox\"]/li");
 
 
     public FilterPage(WebDriver driver) {
@@ -33,5 +35,11 @@ public class FilterPage extends BasePage{
     public MoviePage clickMovieItem(int item){
         mapWebElements(movieItem).get(item).click();
         return new MoviePage(driver);
+    }
+
+    public FilterPage selectSortResultsBy(){
+        mapWebElements(sortResultsButton).get(0).click();
+        mapWebElements(sortResults).get(1).click();
+        return new FilterPage(driver);
     }
 }
