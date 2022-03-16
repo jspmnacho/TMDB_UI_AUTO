@@ -136,8 +136,8 @@
                   </a> <!-- FailedLogin -->
                   <span class="method-name">FailedLogin</span>
                   <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)&quot; because &quot;this.driver&quot; is null
-	at Pages.BasePage.mapWebElement(BasePage.java:23)
-	at Pages.MainPage.clickloginMenuButton(MainPage.java:19)
+	at pages.BasePage.mapWebElement(BasePage.java:22)
+	at pages.MainPage.clickloginMenuButton(MainPage.java:19)
 	at MainTest.FailedLogin(MainTest.java:23)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 31 stack frames
@@ -150,8 +150,8 @@
                   </a> <!-- SuccessLogin -->
                   <span class="method-name">SuccessLogin</span>
                   <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)&quot; because &quot;this.driver&quot; is null
-	at Pages.BasePage.mapWebElement(BasePage.java:23)
-	at Pages.MainPage.clickloginMenuButton(MainPage.java:19)
+	at pages.BasePage.mapWebElement(BasePage.java:22)
+	at pages.MainPage.clickloginMenuButton(MainPage.java:19)
 	at MainTest.SuccessLogin(MainTest.java:13)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 31 stack frames
@@ -217,10 +217,6 @@
               <span class="test-group-name">test2</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">FailedLogin</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
                 <span class="method-in-group-name">SuccessLogin</span>
                 <br/>
               </div> <!-- method-in-group -->
@@ -245,7 +241,7 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'FailedLogin')
 data.setCell(0, 2, 'MainTest')
-data.setCell(0, 3, 56);
+data.setCell(0, 3, 55);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'SuccessLogin')
 data.setCell(1, 2, 'MainTest')
@@ -254,7 +250,7 @@ window.suiteTableData['Suite1']= { tableData: data, tableDiv: 'times-div-Suite1'
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 58 ms</span>
+              <span class="suite-total-time">Total running time: 57 ms</span>
               <div id="times-div-Suite1">
               </div> <!-- times-div-Suite1 -->
             </div> <!-- times-div -->
@@ -304,7 +300,7 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">SuccessLogin</span>
-                <span class="method-start">108 ms</span>
+                <span class="method-start">106 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
