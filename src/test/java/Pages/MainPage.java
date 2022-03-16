@@ -1,6 +1,8 @@
 package Pages;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class MainPage extends BasePage{
 
@@ -19,7 +21,10 @@ public class MainPage extends BasePage{
     }
 
     public MovieItemsPage clickSearchButton(){
-        mapWebElement(searchButton).click();
+        JavascriptExecutor je = (JavascriptExecutor) driver;
+        WebElement val = mapWebElement(searchButton);
+        je.executeScript("arguments[0].scrollIntoView(true);",val);
+        val.click();
         return new MovieItemsPage(driver);
     }
 
