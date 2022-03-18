@@ -9,44 +9,45 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Surefire suite</th></tr>
-<tr><td><a href="#t0">Surefire test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num attn">3</td><td class="num">50,352</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Surefire test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">6</td><td class="num">75,155</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="3">MainTest</td><td><a href="#m0">FailedLogin</a></td><td rowspan="1">1647461370195</td><td rowspan="1">1738</td></tr><tr class="failedeven"><td><a href="#m1">SortDatesAscendingOrder</a></td><td rowspan="1">1647461377767</td><td rowspan="1">1553</td></tr><tr class="failedeven"><td><a href="#m2">VerifyMovieGenreFilter</a></td><td rowspan="1">1647461410672</td><td rowspan="1">2548</td></tr><tr><th colspan="4">Surefire test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">MainTest</td><td><a href="#m3">SuccessLogin</a></td><td rowspan="1">1647461384740</td><td rowspan="1">2078</td></tr><tr class="passedeven"><td><a href="#m4">SuccessfulSearch</a></td><td rowspan="1">1647461393006</td><td rowspan="1">1387</td></tr><tr class="passedeven"><td><a href="#m5">ValidateActingTimeline</a></td><td rowspan="1">1647461401231</td><td rowspan="1">3276</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="6">MainTest</td><td><a href="#m0">FailedLogin</a></td><td rowspan="1">1647555339569</td><td rowspan="1">73</td></tr><tr class="failedeven"><td><a href="#m1">SortDatesAscendingOrder</a></td><td rowspan="1">1647555351916</td><td rowspan="1">1077</td></tr><tr class="failedeven"><td><a href="#m2">SuccessLogin</a></td><td rowspan="1">1647555363639</td><td rowspan="1">4</td></tr><tr class="failedeven"><td><a href="#m3">SuccessfulSearch</a></td><td rowspan="1">1647555376261</td><td rowspan="1">4</td></tr><tr class="failedeven"><td><a href="#m4">ValidateActingTimeline</a></td><td rowspan="1">1647555389276</td><td rowspan="1">2023</td></tr><tr class="failedeven"><td><a href="#m5">VerifyMovieGenreFilter</a></td><td rowspan="1">1647555402923</td><td rowspan="1">1016</td></tr></tbody>
 </table>
-<h2>Surefire test</h2><h3 id="m0">MainTest#FailedLogin</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [You have 4 remaining login attempts.] but found [You have 9 remaining login attempts.]
-	at MainTest.FailedLogin(MainTest.java:28)
+<h2>Surefire test</h2><h3 id="m0">MainTest#FailedLogin</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;java.util.logging.Logger.log(java.util.logging.Level, String)&quot; because &quot;this.logger&quot; is null
+	at pages.BasePage.mapWebElement(BasePage.java:25)
+	at pages.MainPage.clickloginMenuButton(MainPage.java:17)
+	at MainTest.FailedLogin(MainTest.java:20)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 38 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">MainTest#SortDatesAscendingOrder</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Movie is not between the year expected [true] but found [false]
-	at pages.FilterPage.validateDateMovie(FilterPage.java:75)
-	at MainTest.SortDatesAscendingOrder(MainTest.java:68)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">MainTest#SortDatesAscendingOrder</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;java.util.logging.Logger.log(java.util.logging.Level, String)&quot; because &quot;this.logger&quot; is null
+	at pages.BasePage.mapWebElement(BasePage.java:25)
+	at pages.FilterPage.clickSearchButton(FilterPage.java:39)
+	at MainTest.SortDatesAscendingOrder(MainTest.java:60)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 35 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">MainTest#VerifyMovieGenreFilter</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=99.0.4844.51)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
-Build info: version: &apos;4.1.2&apos;, revision: &apos;9a5a329c5a&apos;
-System info: host: &apos;EN911466&apos;, ip: &apos;192.168.5.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [962ec595484634216cd83d337d2da0e5, clickElement {id=c8f1eb35-7fe2-4285-868d-f29fd8c04174}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.51, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: C:\Users\jpuerto\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:56772}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56772/devtoo..., se:cdpVersion: 99.0.4844.51, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (962ec595484634216cd83d337d2da0e5)] -&gt; css selector: div.style_1]
-Session ID: 962ec595484634216cd83d337d2da0e5
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:558)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
-	at pages.FilterPage.clicMoviesItem(FilterPage.java:56)
-	at MainTest.VerifyMovieGenreFilter(MainTest.java:48)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">MainTest#SuccessLogin</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;java.util.logging.Logger.log(java.util.logging.Level, String)&quot; because &quot;this.logger&quot; is null
+	at pages.BasePage.mapWebElement(BasePage.java:25)
+	at pages.MainPage.clickloginMenuButton(MainPage.java:17)
+	at MainTest.SuccessLogin(MainTest.java:11)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 37 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">MainTest#SuccessLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">MainTest#SuccessfulSearch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">MainTest#ValidateActingTimeline</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">MainTest#SuccessfulSearch</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;java.util.logging.Logger.log(java.util.logging.Level, String)&quot; because &quot;this.logger&quot; is null
+	at pages.BasePage.mapWebElement(BasePage.java:25)
+	at pages.MainPage.searchMovie(MainPage.java:30)
+	at MainTest.SuccessfulSearch(MainTest.java:30)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">MainTest#ValidateActingTimeline</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;java.util.logging.Logger.log(java.util.logging.Level, String)&quot; because &quot;this.logger&quot; is null
+	at pages.BasePage.mapWebElement(BasePage.java:25)
+	at pages.MoviePage.getMovieName(MoviePage.java:21)
+	at MainTest.ValidateActingTimeline(MainTest.java:50)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">MainTest#VerifyMovieGenreFilter</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;java.util.logging.Logger.log(java.util.logging.Level, String)&quot; because &quot;this.logger&quot; is null
+	at pages.BasePage.mapWebElement(BasePage.java:25)
+	at pages.FilterPage.clickFiltersItem(FilterPage.java:28)
+	at MainTest.VerifyMovieGenreFilter(MainTest.java:39)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

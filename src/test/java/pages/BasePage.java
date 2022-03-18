@@ -1,13 +1,12 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.testng.Assert;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 
 public class BasePage {
@@ -22,17 +21,17 @@ public class BasePage {
     public WebElement mapWebElement(By locator){
         WebDriverWait wait = new WebDriverWait(driver, 5);
         WebElement val = driver.findElement(locator);
-        Actions action = new Actions(driver);
-        action.moveToElement(val).build().perform();
         wait.until(ExpectedConditions.elementToBeClickable(val));
         return val;
     }
 
     public List<WebElement> mapWebElements(By locator){
-        return driver.findElements(locator);
+        List val = driver.findElements(locator);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return val;
     }
-/*
-    public List<WebElement> mapWebElements(By locator){
+
+  /*  public List<WebElement> mapWebElements(By locator){
         WebDriverWait wait = new WebDriverWait(driver, 5);
         List elements = driver.findElements(locator);
         for(int i= 0; i<elements.size(); i++){
@@ -42,4 +41,19 @@ public class BasePage {
         return elements;
     }
 */
+    public void assertionsEquals(String actual, String expected) {
+        try {
+            Assert.assertEquals(actual, expected);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void assertionsTrue(Boolean actual, String expected) {
+        try {
+            Assert.assertTrue(actual, expected);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

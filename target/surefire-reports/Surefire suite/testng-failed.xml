@@ -5,10 +5,13 @@
     <classes>
       <class name="MainTest">
         <methods>
+          <include name="SuccessfulSearch"/>
           <include name="SortDatesAscendingOrder"/>
           <include name="FailedLogin"/>
           <include name="setup"/>
+          <include name="SuccessLogin"/>
           <include name="VerifyMovieGenreFilter"/>
+          <include name="ValidateActingTimeline"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- MainTest -->

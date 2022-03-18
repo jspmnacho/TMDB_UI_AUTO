@@ -1,10 +1,8 @@
 package pages;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
-public class MainPage extends BasePage{
+
+public class MainPage extends BasePage {
 
     private By loginMenuButton = By.xpath("//li/a[@href='/login']");
     private By searchBar = By.cssSelector("input#inner_search_v4");
@@ -20,23 +18,22 @@ public class MainPage extends BasePage{
         return new LoginPage(driver);
     }
 
-    public MovieItemsPage clickSearchButton(){
+    public MovieItemsPage clickSearchButton() {
         JavascriptExecutor je = (JavascriptExecutor) driver;
         WebElement val = mapWebElement(searchButton);
-        je.executeScript("arguments[0].scrollIntoView(true);",val);
+        je.executeScript("arguments[0].scrollIntoView(true);", val);
         val.click();
         return new MovieItemsPage(driver);
     }
 
-    public MainPage searchMovie(String movie){
+    public MainPage searchMovie(String movie) {
         mapWebElement(searchBar).sendKeys(movie);
         return new MainPage(driver);
     }
 
-    public FilterPage clickMovieMenuItem(int item){
+    public FilterPage clickMovieMenuItem(int item) {
         mapWebElements(menuItem).get(0).click();
         mapWebElements(menuItem).get(item).click();
         return new FilterPage(driver);
     }
-
 }
